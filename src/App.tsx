@@ -5,11 +5,12 @@ import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
 import { UserList } from "./users";
 import { PostList, PostEdit, PostCreate } from "./posts";
+import { Dashboard } from "./Dashboard";
 
 const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
 const App = () => (
-  <Admin dataProvider={dataProvider}>
+  <Admin dataProvider={dataProvider} dashboard={Dashboard}>
     <Resource
       name="posts"
       list={PostList}
