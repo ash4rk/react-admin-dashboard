@@ -20,7 +20,7 @@ const client = new ApolloClient({
 });
 
 const fields = {
-  users: { "name": "", "email": "" }
+  users: "name, id, email"
   //  id: "id name"
 };
 
@@ -39,7 +39,7 @@ export const dataProvider = {
         variables: {},
       })
       .then((result) => ({
-        data: _.map(result.data[resource], (x) => _.assign(x, { id: x.name })),
+        data: _.map(result.data[resource], (x) => _.assign(x, { id: x.id, name: x.name, email: x.email })),
         total: result.data[resource].length,
       }));
   },
